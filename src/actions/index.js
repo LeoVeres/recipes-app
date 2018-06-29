@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config'
+
 // export const fetchUser = () => {
 //   return {
 //     type: '',
@@ -16,7 +18,7 @@ const fetchUserSuccess = (user) => {
 export const fetchUser = () => {
   return dispatch => {
     // we can do async stuff basically ie ajax
-    fetch('http://localhost:8080/user')
+    fetch(`${API_BASE_URL}/user`)
     .then(response => response.json())
     .then(obj => dispatch(fetchUserSuccess(obj.user)))
     .catch(error => console.log(error))
