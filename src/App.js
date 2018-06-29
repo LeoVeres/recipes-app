@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
+import { fetchUser } from './actions'
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchUser())
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +25,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(App);
