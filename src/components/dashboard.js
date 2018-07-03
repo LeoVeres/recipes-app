@@ -2,41 +2,65 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
 import {Link, Redirect} from 'react-router-dom';
+import RecipeForm from './recipe-form';
 
 
 export class Dashboard extends React.Component {
-    componentDidMount() {
-    }
-
     render() {
+        let ingredientsList;
+        let ingredientsHeader;
+        if(this.props.ingredients){
+            ingredientsList= this.props.ingredients.map((item,i) => <li key={i}>{item}</li>);
+            ingredientsHeader= <div>Ingredients:</div>
+        };
+        let directionList;
+        let directionHeader;
+        if(this.props.directions){
+            directionList= this.props.directions.map((item,i) => <li key={i}>{item}</li>);
+            directionHeader= <div>Directions:</div>;
+        };
         return (
             <div className="dashboard">
                 <div className="">
                   <h2> Recipes </h2>
+                <RecipeForm/>
                 </div>
-                <Link to="/dashboard">Recipes</Link>
-                <Link to="/mealplanner">Meal Planner</Link>
-                <Link to="/shoppinglist">Shopping List</Link>
-               <div className="recipes">
-                    Recipe: {this.props.ingredients}
-                    Date: {this.props.datemade}
-               </div>         
+                <Link className="link" to="/dashboard">Recipes</Link>
+                <Link className="link" to="/mealplanner">Meal Planner</Link>
+                <Link className="link" to="/shoppinglist">Shopping List</Link>
+               <div className="recipeBox">
+                  Recipe: {this.props.recipe} 
+                  {ingredientsHeader} 
+                  <ul>
+                    {ingredientsList}
+                  </ul>
+                  {directionHeader}
+                  <ul>
+                    {directionList}
+                  </ul>   
+                  <div>
+                    Date last made: {this.props.datemade}
+                  </div> 
+                </div>        
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    // const {currentUser} = state.auth;
-    const ingredientList= state.recipes.recipes;
     return {
-        // username: state.auth.currentUser.username,
-        // name: `${currentUser.firstName} ${currentUser.lastName}`,
         datemade: state.recipes.datemade,
-        ingredients: ingredientList[0]
+        ingredients:state.recipes.ingredients,
+        directions:state.recipes.directions,
+        recipe: state.recipes.recipe
     };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+//export default connect(mapStateToProps)(Dashboard);
 
-// requiresLogin()(    )
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+
+
+    // const {currentUser} = state.auth;
+        // username: state.auth.currentUser.username,
+        // name: `${currentUser.firstName} ${currentUser.lastName}`

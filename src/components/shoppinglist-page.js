@@ -13,9 +13,9 @@ export class ShoppingList extends React.Component {
                 <div className="">
                   <h2> Shopping List </h2>
                 </div>
-                <Link to="/dashboard">Recipes</Link>
-                <Link to="/mealplanner">Meal Planner</Link>
-                <Link to="/shoppinglist">Shopping List</Link>
+                <Link className="link" to="/dashboard">Recipes</Link>
+                <Link className="link" to="/mealplanner">Meal Planner</Link>
+                <Link className="link" to="/shoppinglist">Shopping List</Link>
 
             </div>
         );
@@ -23,10 +23,8 @@ export class ShoppingList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
     return {
-        username: state.auth.currentUser.username,
-        name: `${currentUser.firstName} ${currentUser.lastName}`
+
     };
 };
 

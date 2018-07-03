@@ -4,9 +4,9 @@ import {
 } from '../actions/recipes';
 
 const initialState = {
-  recipes:[
-    'sauce'
-  ],
+  recipe: 'pizza',
+  ingredients:['cheese', 'sauce','dough'],
+  directions:['combine cheese and sauce','eat'],
   datemade:'5/1/2018',
   error: null
 };
