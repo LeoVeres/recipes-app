@@ -2,11 +2,6 @@ import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 import {SubmissionError} from 'redux-form';
 
-export const FETCH_SEARCH_TERM = 'FETCH_SEARCH_TERM';
-export const fetchSearchTerm = (searchTerm) => ({
-    type: FETCH_SEARCH_TERM,
-    searchTerm
-});
 
 export const FETCH_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS';
 export const fetchRecipesSuccess = (data) => ({
@@ -19,6 +14,14 @@ export const fetchRecipesError = error => ({
     type: FETCH_RECIPES_ERROR,
     error
 });
+
+
+export const SEARCH_RECIPES = 'SEARCH_RECIPE';
+export const searchRecipes = (data) => ({
+    type: SEARCH_RECIPES,
+    data
+});
+
 
 export const fetchRecipes = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Field, reduxForm, focus, reset} from 'redux-form';
-import {createRecipe, fetchRecipes, updateRecipe} from '../actions/recipes';
+import {Field, reduxForm, focus} from 'redux-form';
+import {fetchRecipes, updateRecipe} from '../actions/recipes';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 
@@ -8,11 +8,11 @@ import {required, nonEmpty} from '../validators';
 
 export class EditForm extends React.Component {
     componentWillMount () {
-        this.props.initialize({ title:this.props.title, directions: this.props.directions, ingredients:this.props.ingredients});
+        this.props.initialize({ title:this.props.title, directions: this.props.directions, ingredients:this.props.ingredients, tags:this.props.tags});
       }
     onSubmit(values) {
-        const {title, directions, ingredients} = values;
-        const recipe = {title, directions, ingredients:ingredients.split(',')};
+        const {title, directions, ingredients,tags} = values;
+        const recipe = {title, directions, ingredients:ingredients.split(','), tags:tags.split(',')};
         return this.props
             .dispatch(updateRecipe(recipe,this.props.id))
             .then(() => {this.props.showEdit();
@@ -20,6 +20,7 @@ export class EditForm extends React.Component {
     }
   
     render() {
+
         return (
             <form
                 className="login-form"
@@ -34,6 +35,9 @@ export class EditForm extends React.Component {
 
                 <label htmlFor="directions">Directions</label>
                 <Field component={Input} type="text" name="directions"/>
+
+                <label htmlFor="tags">Tags</label>
+                <Field component={Input} type="text" name="tags"/>
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>

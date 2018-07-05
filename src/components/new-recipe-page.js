@@ -2,8 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
 import {Link} from 'react-router-dom';
+import RecipeForm from './recipe-form';
 
-export class ShoppingList extends React.Component {
+
+export class NewRecipe extends React.Component {
     componentDidMount() {
     }
 
@@ -11,14 +13,14 @@ export class ShoppingList extends React.Component {
         return (
             <div className="">
                 <div className="">
-                  <h2> Shopping List </h2>
+                  <h2> Create Recipe </h2>
                 </div>
                 <Link className="link" to="/dashboard">Recipe Book</Link>
                 <Link className="link" to="/create">Create Recipe</Link>
                 <Link className="link" to="/mealplanner">Meal Planner</Link>
                 <Link className="link" to="/shoppinglist">Shopping List</Link>
-
-            </div>
+                <RecipeForm/>
+           </div>
         );
     }
 }
@@ -29,4 +31,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(ShoppingList));
+export default requiresLogin()(connect(mapStateToProps)(NewRecipe));

@@ -1,11 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
-import {Link, Redirect} from 'react-router-dom';
 import EditForm from './edit-form';
-import RecipeCard from './recipe-card';
-import { fetchRecipes } from '../actions/recipes';
-import SearchForm from './searchbar';
 
 export class Dashboard extends React.Component {
     componentDidMount(){
@@ -30,7 +26,6 @@ export class Dashboard extends React.Component {
 const mapStateToProps = (state,props) => {
     
     return {
-        recipes: state.recipes.all,
         selectedRecipe: state.recipes.all.find(item=>item.id===props.match.params.id)
 
     };

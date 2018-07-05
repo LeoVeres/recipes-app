@@ -10,6 +10,8 @@ import ShoppingList from './shoppinglist-page';
 import MealPlanner from './mealplanner-page';
 import {refreshAuthToken} from '../actions/auth';
 import EditPage from './edit-page';
+import NewRecipe from './new-recipe-page';
+
 
 export class App extends React.Component {
 
@@ -41,6 +43,7 @@ stopPeriodicRefresh() {
 
     clearInterval(this.refreshInterval);
 }
+// <Route exact path="/create" component={CreateRecipe}/>     
 
   render() {
     return (
@@ -54,7 +57,10 @@ stopPeriodicRefresh() {
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/shoppinglist" component={ShoppingList} />
                 <Route exact path="/mealplanner" component={MealPlanner} />
-                <Route exact path="/edit/:id" component={EditPage}/>     
+                <Route exact path="/edit/:id" component={EditPage}/>
+                <Route exact path="/create" component={NewRecipe}/>
+
+
         </div>
       </div>
     );

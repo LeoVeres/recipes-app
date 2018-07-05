@@ -1,7 +1,7 @@
 import {
   FETCH_RECIPES_SUCCESS,
   FETCH_RECIPES_ERROR,
-  FETCH_SEARCH_TERM
+  SEARCH_RECIPES
 } from '../actions/recipes';
 
 const initialState = {
@@ -10,12 +10,12 @@ const initialState = {
       id:0,
       title:'',
       ingredients:[],
-      directions:''
+      directions:'',
+      tags:[]
     }
   ],
   error: null,
   searchTerm:''
-
 };
 
 export default function reducer(state = initialState, action) {
@@ -28,11 +28,12 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
           error: action.error
       });
-  } else if (action.type === FETCH_SEARCH_TERM) {
+  } else if (action.type === SEARCH_RECIPES) {
     return Object.assign({}, state, {
-        searchTerm: action.searchTerm,
+        searchTerm: action.data,
         error: null
     });
 }  
+
   return state;
 }

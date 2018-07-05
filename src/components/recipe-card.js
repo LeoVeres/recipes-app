@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { deleteRecipe, fetchOneRecipe } from '../actions/recipes';
-import {Link, Redirect} from 'react-router-dom';
-import {API_BASE_URL} from '../config';
+import { deleteRecipe} from '../actions/recipes';
 
 
 class RecipeCard extends React.Component {
@@ -13,6 +11,8 @@ class RecipeCard extends React.Component {
     let ingredientsHeader;
     let directions;
     let directionHeader;
+    let tagsHeader;
+    let tagsList;
     if(this.props.ingredients){
         ingredientsList= this.props.ingredients.map((item,i) => <li key={i}>{item}</li>);
         ingredientsHeader= <div>Ingredients:</div>
@@ -21,6 +21,10 @@ class RecipeCard extends React.Component {
         directions= this.props.directions;
         directionHeader= <div>Directions:</div>;
     };
+    if(this.props.tags){
+      tagsList= this.props.tags.map((item,i) => <li key={i}>{item}</li>);
+      tagsHeader= <div>Tags:</div>
+    }
 
     return(
       <div className="recipeBox">
@@ -31,6 +35,10 @@ class RecipeCard extends React.Component {
         </ul>
         {directionHeader}
           {directions}
+        {tagsHeader}
+        <ul>
+          {tagsList}
+        </ul>
         <button onClick= {e=> this.props.dispatch(deleteRecipe(this.props.id))}
         >Delete
         </button>
