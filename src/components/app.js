@@ -9,6 +9,7 @@ import RegistrationPage from './registration-page';
 import ShoppingList from './shoppinglist-page';
 import MealPlanner from './mealplanner-page';
 import {refreshAuthToken} from '../actions/auth';
+import EditPage from './edit-page';
 
 export class App extends React.Component {
 
@@ -52,7 +53,8 @@ stopPeriodicRefresh() {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/shoppinglist" component={ShoppingList} />
-                <Route exact path="/mealplanner" component={MealPlanner} />      
+                <Route exact path="/mealplanner" component={MealPlanner} />
+                <Route exact path="/edit/:id" component={EditPage}/>     
         </div>
       </div>
     );

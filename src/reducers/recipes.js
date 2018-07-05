@@ -1,27 +1,38 @@
 import {
   FETCH_RECIPES_SUCCESS,
-  FETCH_RECIPES_ERROR
+  FETCH_RECIPES_ERROR,
+  FETCH_SEARCH_TERM
 } from '../actions/recipes';
 
 const initialState = {
-  recipe: 'pizza',
-  ingredients:['cheese', 'sauce','dough'],
-  directions:['combine cheese and sauce','eat'],
-  datemade:'5/1/2018',
-  error: null
+  all:[ 
+    {
+      id:0,
+      title:'',
+      ingredients:[],
+      directions:''
+    }
+  ],
+  error: null,
+  searchTerm:''
+
 };
 
 export default function reducer(state = initialState, action) {
   if (action.type === FETCH_RECIPES_SUCCESS) {
-    console.log('fetched recipe data');
       return Object.assign({}, state, {
-          recipes: action.data,
+          all: action.data,
           error: null
       });
   } else if (action.type === FETCH_RECIPES_ERROR) {
       return Object.assign({}, state, {
           error: action.error
       });
-  }
+  } else if (action.type === FETCH_SEARCH_TERM) {
+    return Object.assign({}, state, {
+        searchTerm: action.searchTerm,
+        error: null
+    });
+}  
   return state;
 }
