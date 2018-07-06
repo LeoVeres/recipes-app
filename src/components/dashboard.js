@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import RecipeCard from './recipe-card';
 import { fetchRecipes } from '../actions/recipes';
 import SearchForm from './search-form';
+ 
 
 export class Dashboard extends React.Component {
     componentDidMount(){
@@ -13,26 +14,25 @@ export class Dashboard extends React.Component {
     showEdit(id){
         this.props.history.push(`/edit/${id}`)
     };
+    showPlan(id){
+        this.props.history.push(`/plan/${id}`)
+    };
+
+
 
     render() {
         let recipeResults;
         if (this.props.recipes){
             recipeResults= this.props.recipes.map(recipe=>
-                <RecipeCard showEdit={id => this.showEdit(id)} key={recipe.id}{...recipe}/>)
+                <RecipeCard showEdit={id => this.showEdit(id)} showPlan={id => this.showPlan(id)}key={recipe.id}{...recipe}/>)
         };
         return (
             <div className="dashboard">
-                <h2>Recipes</h2>
-                <Link className="link" to="/dashboard">Recipe Book</Link>
-                <Link className="link" to="/create">Create Recipe</Link>
-                <Link className="link" to="/mealplanner">Meal Planner</Link>
-                <Link className="link" to="/shoppinglist">Shopping List</Link>
-                <SearchForm/>
+                <SearchForm />
                 {recipeResults}
             </div>
         );
     }
-
 }
 
 const mapStateToProps = state => {

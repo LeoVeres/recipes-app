@@ -6,6 +6,7 @@ import {searchRecipes} from '../actions/recipes';
 
 
 
+
 class SearchForm extends React.Component {
 
   onSubmit(values){
@@ -20,14 +21,14 @@ class SearchForm extends React.Component {
     render() {
       return (
         <form 
-        className="search" 
-        onSubmit={this.props.handleSubmit(values =>
-          this.onSubmit(values)
-      )}
-        >
+            className="search" 
+            onSubmit={this.props.handleSubmit(values =>
+            this.onSubmit(values))}>
+          <div className="search-inputs">
           <label htmlFor="search"></label>
-          <Field component={Input} type="text" name="search" />
-          <button type="submit" >Search</button>
+          <Field className="search-box"component={Input} type="text" name="search" />
+          <button type="submit" className="search-button">Search</button>
+          </div>
         </form>
       );
     }

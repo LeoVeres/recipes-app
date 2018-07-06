@@ -3,35 +3,39 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
+import {Link} from 'react-router-dom';
+
 export class HeaderBar extends React.Component {
+
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
 
     render() {
-        // Only render the log out button if we are logged in
-        let logOutButton;
-        let accountName;
-        let recipeApp= (<h1>Recipe App</h1>);
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-            recipeApp = '';
+        let header;
+        if(this.props.loggedIn){
+            header= 
+            <div className="header-bar">
+            <div className="navlinks">
+                <button className="logout-button"onClick={() => this.logOut()}>Log out</button>
+                <Link className='link' to="/dashboard" >Recipes</Link>
+                <Link className="link" to="/create">Create</Link>
+                <Link className="link" to="/mealplanner">Plan</Link>
+                <Link className="link" to="/shoppinglist">Shop</Link>
+            </div>
+            </div>
         }
         return (
-            <div className="header-bar">
-                {recipeApp}
-                {accountName}
-                {logOutButton}
+            <div>
+            {header}
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
- loggedIn: state.auth.currentUser !== null,
+    loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(HeaderBar);

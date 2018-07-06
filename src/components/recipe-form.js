@@ -26,18 +26,18 @@ export class RecipeForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label htmlFor="title">Title</label>
-                <Field component={Input} type="text" name="title" validate={[required, nonEmpty]} placeholder="power puff pastry"/>
+                <label htmlFor="title">Title:</label>
+                <Field component={Input} type="text" name="title" validate={[required, nonEmpty]} placeholder="Fried Chicken"/>
 
-                <label htmlFor="ingredients">Ingredients</label>
-                <Field   component={Input} type="text" name="ingredients" validate={[required, nonEmpty]} placeholder="sugar, spice, everything nice"/>
+                <label htmlFor="ingredients">Ingredients:</label>
+                <Field   className='textarea' component='textarea' type="textarea" name="ingredients" validate={[required, nonEmpty]} placeholder="chicken, flour, egg, breadcrumbs"/>
 
-                <label htmlFor="directions">Directions</label>
-                <Field component="textarea" type="textarea" element= "textarea" validate={[required, nonEmpty]} name="directions" placeholder="dont forget to add extra ingredient to the concoction--
-Chemical X"/>
-                <label htmlFor="tags">Tags</label>
+                <label htmlFor="directions">Directions:</label>
+                <Field className='textarea'component="textarea" type="textarea" element= "textarea" validate={[required, nonEmpty]} name="directions" placeholder="Shake and bake"/>
+                <label htmlFor="tags">Tags:</label>
                 <Field   component={Input} type="text" name="tags" placeholder="Breakfast, Lunch, Dinner"/>
                 <button
+                    className='save-button'
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Save

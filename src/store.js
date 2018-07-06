@@ -4,13 +4,15 @@ import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import recipesReducer from './reducers/recipes';
+import mealplannerReducer from './reducers/mealplanner';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
   combineReducers({
       form: formReducer,
       auth: authReducer,
-      recipes: recipesReducer
+      recipes: recipesReducer,
+      mealplanner: mealplannerReducer
   }),
   applyMiddleware(thunk)
 );

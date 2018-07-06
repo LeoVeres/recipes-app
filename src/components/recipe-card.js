@@ -27,23 +27,26 @@ class RecipeCard extends React.Component {
     }
 
     return(
-      <div className="recipeBox">
-        Recipe:{this.props.title} 
+      <div className="recipe-box">
+        <h3>{this.props.title}</h3> 
         {ingredientsHeader} 
         <ul>
           {ingredientsList}
         </ul>
         {directionHeader}
-          {directions}
+          <p>{directions}</p>
         {tagsHeader}
         <ul>
           {tagsList}
         </ul>
-        <button onClick= {e=> this.props.dispatch(deleteRecipe(this.props.id))}
+        <button className="delete-button" onClick= {e=> this.props.dispatch(deleteRecipe(this.props.id))}
         >Delete
         </button>
-        <button onClick= {e=>this.props.showEdit(this.props.id)}
+        <button className="edit-button"onClick= {e=>this.props.showEdit(this.props.id)}
         >Edit
+        </button>
+        <button className="edit-button"onClick= {e=>this.props.showPlan(this.props.id)}
+        >Add to Meal Plan
         </button>
       </div> 
     ) 

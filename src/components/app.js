@@ -2,7 +2,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
-import HeaderBar from './header';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
@@ -11,7 +10,8 @@ import MealPlanner from './mealplanner-page';
 import {refreshAuthToken} from '../actions/auth';
 import EditPage from './edit-page';
 import NewRecipe from './new-recipe-page';
-
+import HeaderBar from './header';
+import PlanPage from './plan-page';
 
 export class App extends React.Component {
 
@@ -51,13 +51,14 @@ stopPeriodicRefresh() {
         <header className="">
         </header>
         <div className="app">
-                <HeaderBar />
+                <HeaderBar/>
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/shoppinglist" component={ShoppingList} />
                 <Route exact path="/mealplanner" component={MealPlanner} />
                 <Route exact path="/edit/:id" component={EditPage}/>
+                <Route exact path="/plan/:id" component={PlanPage}/>
                 <Route exact path="/create" component={NewRecipe}/>
 
 

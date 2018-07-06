@@ -1,19 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
-import EditForm from './edit-form';
+import PlanForm from './plan-form';
 
-export class Dashboard extends React.Component {
+export class PlanPage extends React.Component {
     componentDidMount(){
     };
     showEdit(id){
-      this.props.history.push(`/dashboard`)
-  };
+      this.props.history.push(`/mealplanner`)
+    };
 
     render() {
         return (
             <div className="dashboard">
-                <EditForm showEdit={id => this.showEdit()} {...this.props.selectedRecipe}/>
+                <PlanForm showEdit={id => this.showEdit()} {...this.props.selectedRecipe}/>
             </div>
         );
     }
@@ -28,4 +28,4 @@ const mapStateToProps = (state,props) => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(connect(mapStateToProps)(PlanPage));

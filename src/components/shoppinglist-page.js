@@ -1,23 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
-import {Link} from 'react-router-dom';
+import ShoppinglistCard from './shoppinglist-card';
+import {fetchPlans, updatePlan, createPlan} from '../actions/mealplanner';
+
 
 export class ShoppingList extends React.Component {
     componentDidMount() {
+        this.props.dispatch(fetchPlans());
+    }
+    generateList(day){
+        if(day){
+            return day.map(plan=>
+            <ShoppinglistCard key={plan.id}{...plan}/>)
+        }
+        else{return ''}
     }
 
     render() {
         return (
-            <div className="">
-                <div className="">
-                  <h2> Shopping List </h2>
-                </div>
-                <Link className="link" to="/dashboard">Recipe Book</Link>
-                <Link className="link" to="/create">Create Recipe</Link>
-                <Link className="link" to="/mealplanner">Meal Planner</Link>
-                <Link className="link" to="/shoppinglist">Shopping List</Link>
-
+            <div className="shoppinglist">
+                {this.generateList(this.props.plans)}
             </div>
         );
     }
@@ -25,7 +28,7 @@ export class ShoppingList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-
+        plans: state.mealplanner.plans
     };
 };
 
