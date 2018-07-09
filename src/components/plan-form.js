@@ -12,7 +12,6 @@ export class PlanForm extends React.Component {
     onSubmit(values) {
         const {day, meal} = values;
         const plan = {meal, day, title:this.props.title, directions: this.props.directions, ingredients:this.props.ingredients, tags:this.props.tags,id:this.props.id};
-        console.log(plan);
         return this.props.dispatch(createPlan(plan))
             .then(()=>this.props.dispatch(reset('plan')))
             .then(() => {this.props.showEdit();
@@ -29,8 +28,8 @@ export class PlanForm extends React.Component {
                 )}>
                 <h3>{this.props.title}</h3>
                 <label htmlFor="day"></label>
-                <Field name="day" component="select" validate= {required} >
-                    <option value="">Day</option>
+                <Field name="day" component="select" validate= {required} required >
+                    <option hidden>Day</option>
                     <option value="Sunday">Sunday</option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
@@ -40,8 +39,8 @@ export class PlanForm extends React.Component {
                     <option value="Saturday">Saturday</option>
                 </Field>
                 <label htmlFor="meal"></label>
-                <Field name="meal" component="select" validate= {required} >
-                    <option value="">Meal</option>
+                <Field name="meal" component="select" validate= {required} required>
+                    <option hidden>Meal</option>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>

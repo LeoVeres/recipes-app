@@ -51,7 +51,7 @@ stopPeriodicRefresh() {
         <header className="">
         </header>
         <div className="app">
-                <HeaderBar/>
+                <Route path=''component={HeaderBar} />          
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />

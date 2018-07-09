@@ -3,13 +3,14 @@ import {connect} from 'react-redux';
 import requiresLogin from './require-login';
 import {Link} from 'react-router-dom';
 import RecipeCard from './recipe-card';
-import { fetchRecipes } from '../actions/recipes';
+import { fetchRecipes, searchRecipes } from '../actions/recipes';
 import SearchForm from './search-form';
  
 
 export class Dashboard extends React.Component {
     componentDidMount(){
-        this.props.dispatch(fetchRecipes());
+    this.props.dispatch(fetchRecipes());
+    this.props.dispatch(searchRecipes(''));    
     };
     showEdit(id){
         this.props.history.push(`/edit/${id}`)
@@ -17,7 +18,6 @@ export class Dashboard extends React.Component {
     showPlan(id){
         this.props.history.push(`/plan/${id}`)
     };
-
 
 
     render() {
@@ -37,7 +37,6 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     return {
-
         recipes: state.recipes.all.filter(item=> 
             item.title.toLowerCase().includes(state.recipes.searchTerm.toLowerCase()) || 
             item.ingredients.includes(state.recipes.searchTerm) ||

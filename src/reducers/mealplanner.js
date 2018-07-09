@@ -1,7 +1,8 @@
 import {
 FETCH_PLANS_SUCCESS,
 FETCH_PLANS_ERROR,
-SEARCH_PLANS
+SEARCH_PLANS,
+FETCH_ITEMS_SUCCESS
 } from '../actions/mealplanner';
 
 const initialState = {
@@ -14,6 +15,12 @@ const initialState = {
       ingredients:[],
       directions:'',
       tags:[]
+    }
+  ],
+  extraItems:[
+    {
+        extra:'',
+        id:0
     }
   ],
   error: null
@@ -32,6 +39,12 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === SEARCH_PLANS) {
     return Object.assign({}, state, {
         searchTerm: action.data,
+        error: null
+    });
+}  
+else if (action.type === FETCH_ITEMS_SUCCESS) {
+    return Object.assign({}, state, {
+        extraItems: action.data,
         error: null
     });
 }  

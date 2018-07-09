@@ -13,7 +13,7 @@ export class PlanPage extends React.Component {
     render() {
         return (
             <div className="dashboard">
-                <PlanForm showEdit={id => this.showEdit()} {...this.props.selectedRecipe}/>
+                <PlanForm showEdit={() => this.showEdit()} {...this.props.selectedRecipe}/>
             </div>
         );
     }

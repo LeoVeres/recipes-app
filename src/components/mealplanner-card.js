@@ -8,10 +8,10 @@ class MealplannerCard extends React.Component {
   render(){
     return(
       <div className="plan-box">
-        <p>{this.props.title}</p>
-        <p>{this.props.meal}</p>
+        <li>{this.props.meal}-</li>
+        <li>{this.props.title}</li>
         <button className="save-button" onClick= {e=> this.props.dispatch(deletePlan(this.props.id))}
-        >Delete
+        >X
         </button>
       </div> 
     ) 
