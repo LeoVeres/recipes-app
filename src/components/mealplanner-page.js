@@ -21,20 +21,27 @@ export class MealPlanner extends React.Component {
     render() {
         return (
             <div className="mealplanner">
-            <ol>Sunday:</ol>
+            <ul>Sunday:
             {this.generateList(this.props.sunday)}
-            <ol>Monday:</ol>
+            </ul>
+            <ul>Monday:
             {this.generateList(this.props.monday)}
-            <ol>Tuesday:</ol>
+            </ul>
+            <ul>Tuesday:
             {this.generateList(this.props.tuesday)}
-            <ol>Wednesday:</ol>
+            </ul>
+            <ul>Wednesday:
             {this.generateList(this.props.wednesday)}
-            <ol>Thursday:</ol>
+            </ul>
+            <ul>Thursday:
             {this.generateList(this.props.thursday)}
-            <ol>Friday:</ol>
+            </ul>
+            <ul>Friday:
             {this.generateList(this.props.friday)}
-            <ol>Saturday:</ol>
+            </ul>
+            <ul>Saturday:
             {this.generateList(this.props.saturday)}
+            </ul>
 
            </div>
         );

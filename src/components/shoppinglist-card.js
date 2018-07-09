@@ -24,6 +24,8 @@ class ShoppinglistCard extends React.Component {
           <button className="save-button" >X</button>
         </li>);
     };
+
+
     return(
       <ul className="shoppinglist-ul">
           {ingredientsList}

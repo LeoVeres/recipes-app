@@ -15,15 +15,15 @@ class RecipeCard extends React.Component {
     let tagsList;
     if(this.props.ingredients){
         ingredientsList= this.props.ingredients.map((item,i) => <li key={i}>{item}</li>);
-        ingredientsHeader= <div>Ingredients:</div>
+        ingredientsHeader= <div className="recipecard-header">Ingredients:</div>
     };
     if(this.props.directions){
         directions= this.props.directions;
-        directionHeader= <div>Directions:</div>;
+        directionHeader= <div className="recipecard-header">Directions:</div>;
     };
     if(this.props.tags){
       tagsList= this.props.tags.map((item,i) => <li key={i}>{item}</li>);
-      tagsHeader= <div>Tags:</div>
+      tagsHeader= <div className="recipecard-header">Tags:</div>
     }
 
     return(

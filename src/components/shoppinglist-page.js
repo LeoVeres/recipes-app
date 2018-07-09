@@ -39,3 +39,5 @@ const mapStateToProps = state => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(ShoppingList));
+
+// {this.generateList(this.props.plans)}
