@@ -1,2 +1,10 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: tjkwB7xuRndFomqMwdrburfYKJ8qDox9FEHnVrdsecXdhim7IYT8oM5xvyy21HOIt0zw6aW1lBhCeOZywF3yXUANwY24i0vg4CFPKHK+YhkE/xmiMnzZGfpi+ADzTQ/6aGiNkcXzqqt7uvlnvRD0f7+AZcjuShoVL8++mT1nhAy8uW1h6+V0W5LEVl/mTbekPh3cS/JxJR6ZtLBLUpm+VahMxwFyeRIrFz10UE9H8fwtUtysWhQnbsGXrZ+bb/sjVrUsHJQqayorb7zM5bSGPMjYA/FlGR63NhMNrlioLmPcul6bWseFFBT/ALn7YHs83OWCTIygU0RF+EgEFgAg/d0alW4DJ4SDy0YYysJmMjnJSqIV61e31UfdP44/dv5ktFHlw7hzCM4aA9UQlvlTXz19e4z34/XwzUn55DutIADRMtegOalKa/q1CFVo89WZ9JsRYXDR+RuL2vrro9+jR34B3zMMHymGeGomZh0cPQ8UjCy48SgWUTl5b+d4WNriwnHq/Fq5WCVrOZ0hZ0gs4xZXRXWCSgCEYeuCdk5tMION9mhy2FkgEEzVFH9oUKFPOIM3muCiZ6qhoBbGtospGBox0OSWhs0vVR3WA1KvTp0pii9thqYueb4ivRZnRSIqZak1yLGGuVWxrxNwxLUyRZB2AusPNcB+i5UxdSM+8w0=
+  app: leo-recipe-app-client
+
+  on:
+    repo: LeoVeres/recipes-app-client
