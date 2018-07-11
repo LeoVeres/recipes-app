@@ -1,7 +1,7 @@
 import React from 'react';
-import {Field, reduxForm, focus, reset} from 'redux-form';
+import {Field, reduxForm, reset} from 'redux-form';
 import {fetchPlans, createPlan, createItem} from '../actions/mealplanner';
-import {required, nonEmpty} from '../validators';
+import {required} from '../validators';
 
 
 
@@ -11,9 +11,12 @@ export class PlanForm extends React.Component {
     onSubmit(values) {
         const {day, meal} = values;
         const plan = {meal, day, title:this.props.title, directions: this.props.directions, ingredients:this.props.ingredients, tags:this.props.tags,id:this.props.id};
-        // const item ={extra:this.props.ingredients, id:this.props.id};
+        for(let i =0; i<this.props.ingredients.length; i++){
+            this.props.dispatch(
+               createItem({extra:this.props.ingredients[i], id:this.props.id})
+           );
+       }
         return this.props.dispatch(createPlan(plan))
-            // .then(()=>this.props.dispatch(createItem(item)))
             .then(()=>this.props.dispatch(reset('plan')))
             .then(() => {this.props.showEdit();
                 this.props.dispatch(fetchPlans())}); 

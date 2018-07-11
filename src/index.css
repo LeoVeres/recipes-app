@@ -3,12 +3,14 @@
 padding:0;
 }
 
+
 body {
   margin: auto;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   max-width: 800px;
+  
 }
 
 h1{
@@ -22,37 +24,54 @@ h1{
 h2{
   font-size:10px;
   margin:0px;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+
+}
+button{
+  outline: none;
 }
 
-.link{
+
+.link, .logout-button{
   display: inline-block;
-  font-size: 17.5px;
+  font-size: 28px;
   text-decoration: none;
   color: grey;
   padding:4px;
   border: 2px solid grey;
   border-radius: 4px 4px 0px 0px;
+  height: 30px;
+  width:30px;
+}
+
+.table-button, .logout-button{
+  float: right;
+  float: right;
+}
+
+.logout-button{
+  background-color: white;
+  height: 42px;
+  width:42px;
+  margin-right: 5px;
+}
+
+.table:hover, .logout-button:hover, .link:hover{
+  cursor: pointer;
+  color:black
 }
 
 
 .activelink{
   background-color: rgba(128, 128, 128, 0.63);
   color: white;
-  border: 2px  2px 0px 2px solid grey;
+  border: 2px solid grey;
+  border-bottom: 2px solid rgba(247, 241, 224, 0.718);
 }
-
-.logout-button{
-background:white;
-display: inline-block;
-font-size: 17.5px;
-color: grey;
-padding:4px;
-border: 2px solid grey;
-border-radius: 4px 4px 0px 0px;
-margin-right:4px;
-float: right;
+.activelink:hover{
+  color:white;
 }
-
 div{
   display: block;
   margin: 0 auto;
@@ -79,7 +98,7 @@ div{
 }
 
 .login-form{
-  padding:100px 0px 20px 0px;
+  padding:80px 0px 20px 0px;
 }
 .login-button{
   color: white;
@@ -93,6 +112,7 @@ div{
 }
 
 .login-button:hover{
+  color:white;
   background:rgba(211, 211, 211, 0.267);
 }
 
@@ -115,50 +135,107 @@ div{
   border-radius: 0px 5px 5px 0px;
   min-height:600px;
   height: 100%;
+  padding:5px 10px ;
+  box-shadow: 0 0 20px #000000;
 }
 
 .landingpage-header{
-  font-size: 20px;
+  font-size: 26px;
   text-align: center;
   margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.search-inputs{
-margin:5px;
+
+.list-items{
+  padding-left:10px;
+  padding-top:10px 
 }
-.search-button, .delete-button, .edit-button, .save-button{
+.delete-button, .edit-button, .save-button,.cancel-button, .check-button{
   display: inline-block;
   background: none;
-  color: white;
+  color: grey;
+  font-size:24px;
   border:none;
-  background: rgba(128, 128, 128, 0.63);
-  font-size:16px;
-  border-radius:2px;
-  border: 1px solid grey;
-  margin-left: 5px;
-  margin-top: 5px;
   padding:3px;
+  margin: 5px 10px 10px 10px;
+}
+
+.check-button, .cancel-button{
+  margin:0 10px;
+  padding:0;
+font-size:22px;
+
+
+}
+.plan-box{
+  max-height: 40px;
+font-weight: normal;
+display: block
+
+}
+
+.search-button  {
+  display: inline-block;
+  background: none;
+  color: grey;
+  font-size:17px;
+  border:2px grey solid;
+  border-radius: 3px;
+  padding:4px 3px 2px 3px;
+}
+
+
+button:hover{
+  color: black;
+  text-decoration: none;
+}
+ul{
+  display: block;
+  list-style: none;
+}
+input, textarea, select{
+  font-size:20px;
+  margin-bottom: 5px
+}
+select{
+  margin:10px;
 }
 .save-button{
-  margin-left: 10px;
-  margin-bottom: 20px;
+  display: block;
+  border:2px grey solid;
+  border-radius: 3px;
+  margin: 20px 0px 10px 10px;
 }
 .delete-button, .edit-button{
  float: right;
 }
-.search-inputs>.form-input{
-  display:inline-block;
-  margin:5px
-}
+
 
 .form-input{
   margin:10px;
 }
+.search-inputs>.form-input, .add-inputs>.form-input{
+  display:inline-block;
+  margin:0px 5px 10px 5px;
+}
+
+.add-inputs{
+  border-bottom:2px dashed grey;
+  padding-bottom: 5px;
+  margin: 5px 0px 10px 0px;
+}
+
+select{
+  color:grey;
+  background-color:white
+
+}
 
 .recipe-box{
-  margin:10px;
-  padding-bottom: 35px;
-  padding-top: 5px;  
+  margin:10px 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;  
   border-top: 2px grey dashed;
 }
 label{
@@ -166,18 +243,44 @@ label{
   display: block;
   font-weight: bold;
 }
+.recipe-form>label{
+  font-size:23px
+}
 
 .textarea{
-  margin-left: 10px
+  margin-left: 10px;
+  padding:0px 10px 0px 2px;
+  width:241px
 }
 
 ul{
   list-style-position: inside;
   margin:10px
 }
+
+.shoppinglist-ul{
+  margin:0px 10px;
+}
+.shoppinglist-li{
+  font-size:20px;
+  color:grey;
+  display: block;
+  list-style-type: disc;
+
+}
+.shoppinglist-li-hidden{
+  color: rgba(128, 128, 128, 0.63);
+  font-size:20px;
+}
+
+
 h3{
-  margin-top:10px;
-  margin-bottom: 5px;
+  margin: 5px;
+  font-size: 26px
+}
+h4{
+  font-size:22px;
+  font-weight: bold;
 }
 p{
   margin:10px
@@ -185,16 +288,45 @@ p{
 
 .mealplanner>ul{
   padding:20px 0 20px 0;
-  margin:5px;
+  margin:10px 5px 5px 5px;
   border-top: 2px dashed grey;
   font-weight: bold;
 }
-.plan-box{
-  max-height: 40px;
-font-weight: normal;
-}
+
 
 .recipecard-header{
   font-weight: bold;
 }
 
+::placeholder { 
+  color: rgba(128, 128, 128, 0.63);
+  opacity: 1; 
+}
+
+.table-of-contents{
+  margin:10px 0px 5px 10px;
+}
+
+.table-of-contents>li{
+  margin: 5px;
+  font-size: 20px
+}
+.table-of-contents-notes{
+  font-size:18px;
+  margin-top:5px;
+  margin-bottom: 15px;
+}
+
+.clear-list-button{
+  display: block;
+  background: none;
+  color: grey;
+  font-size:24px;
+  border:none;
+  margin:0 10px 0px 0;
+  float:right
+}
+.check-button{
+margin-bottom: 10px;
+
+}

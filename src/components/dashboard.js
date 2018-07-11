@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
-import {Link} from 'react-router-dom';
 import RecipeCard from './recipe-card';
 import { fetchRecipes, searchRecipes } from '../actions/recipes';
 import SearchForm from './search-form';
@@ -28,6 +27,7 @@ export class Dashboard extends React.Component {
         };
         return (
             <div className="dashboard">
+                <h3>Recipes</h3>
                 <SearchForm />
                 {recipeResults}
             </div>

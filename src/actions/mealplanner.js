@@ -22,10 +22,15 @@ export const searchPlans = (data) => ({
     data
 });
 
-export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS ';
+export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
 export const fetchItemsSuccess = (data) => ({
     type: FETCH_ITEMS_SUCCESS ,
     data
+});
+
+export const TOGGLE_CHECKED_ITEMS = 'TOGGLE_CHECKED_ITEMS';
+export const toggleCheckedItems = () => ({
+    type: TOGGLE_CHECKED_ITEMS
 });
 
 export const fetchPlans = () => (dispatch, getState) => {
@@ -140,7 +145,6 @@ export const updatePlan = (recipe,id) => (dispatch, getState) => {
 
 
 export const createItem = item => (dispatch, getState) => {
-    console.log(item);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/shoppinglist`, {
         method: 'POST',
@@ -204,5 +208,35 @@ export const fetchItems= () => (dispatch, getState) => {
         .then((data) => dispatch(fetchItemsSuccess(data)))
         .catch(err => {
             dispatch(fetchPlansError(err));
+        });
+};
+
+
+
+
+export const updateItem = (item,id) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/shoppinglist/${id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
+        body: JSON.stringify(item)
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(res => dispatch(fetchItems()))
+        .catch(err => {
+            const {reason, message, location} = err;
+            if (reason === 'ValidationError') {
+                console.log('create recipe error')
+                // Convert ValidationErrors into SubmissionErrors for Redux Form
+                return Promise.reject(
+                    new SubmissionError({
+                        [location]: message
+                    })
+                );
+            }
         });
 };

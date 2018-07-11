@@ -21,13 +21,13 @@ class AddItem extends React.Component {
             className="search" 
             onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}>
-          <div className="search-inputs">
+          <div className="add-inputs ">
           <label htmlFor="additem"></label>
-          <Field className="search-box"component={Input} type="text" name="additem" />
+          <Field className="search-box"component={Input} type="text" name="additem" placeholder="add item"/>
           <button 
           disabled={this.props.pristine || this.props.submitting}
           type="submit" 
-          className="search-button">+</button>
+          className="search-button"><i className="fas fa-plus"></i></button>
           </div>
         </form>
       );

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus, reset} from 'redux-form';
+import {Field, reduxForm, focus} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 import {searchRecipes} from '../actions/recipes';
@@ -26,8 +26,8 @@ class SearchForm extends React.Component {
             this.onSubmit(values))}>
           <div className="search-inputs">
           <label htmlFor="search"></label>
-          <Field className="search-box"component={Input} type="text" name="search" />
-          <button type="submit" className="search-button">Search</button>
+          <Field className="search-box"component={Input} type="text" name="search" placeholder="search recipes"/>
+          <button type="submit" className="search-button"><i className="fas fa-search"></i></button>
           </div>
         </form>
       );

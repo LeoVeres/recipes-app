@@ -12,6 +12,8 @@ import EditPage from './edit-page';
 import NewRecipe from './new-recipe-page';
 import HeaderBar from './header';
 import PlanPage from './plan-page';
+import TableOfContents from './tableofcontents-page';
+
 
 export class App extends React.Component {
 
@@ -53,6 +55,7 @@ stopPeriodicRefresh() {
         <div className="app">
                 <Route path=''component={HeaderBar} />          
                 <Route exact path="/" component={LandingPage} />
+                <Route exact path="/tableofcontents" component={TableOfContents} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/shoppinglist" component={ShoppingList} />

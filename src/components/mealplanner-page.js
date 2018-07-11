@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './require-login';
 import MealplannerCard from './mealplanner-card';
-import {fetchPlans, updatePlan, createPlan} from '../actions/mealplanner';
+import {fetchPlans} from '../actions/mealplanner';
 
 
 export class MealPlanner extends React.Component {
@@ -21,25 +21,26 @@ export class MealPlanner extends React.Component {
     render() {
         return (
             <div className="mealplanner">
-            <ul>Sunday:
+            <h3>Meal Plan</h3>
+            <ul>Sunday
             {this.generateList(this.props.sunday)}
             </ul>
-            <ul>Monday:
+            <ul>Monday
             {this.generateList(this.props.monday)}
             </ul>
-            <ul>Tuesday:
+            <ul>Tuesday
             {this.generateList(this.props.tuesday)}
             </ul>
-            <ul>Wednesday:
+            <ul>Wednesday
             {this.generateList(this.props.wednesday)}
             </ul>
-            <ul>Thursday:
+            <ul>Thursday
             {this.generateList(this.props.thursday)}
             </ul>
-            <ul>Friday:
+            <ul>Friday
             {this.generateList(this.props.friday)}
             </ul>
-            <ul>Saturday:
+            <ul>Saturday
             {this.generateList(this.props.saturday)}
             </ul>
 

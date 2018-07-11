@@ -7,10 +7,7 @@ import LoginForm from './login-form';
 
 export function LandingPage(props) {
     if (props.loggedIn) {
-        return (
-        <div className="landingpage">
-        <h2 className="landingpage-header">Lets Get Cooking!</h2>
-        </div>);
+        return <Redirect to="/tableofcontents" />;
     }
 
     return (

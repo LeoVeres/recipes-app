@@ -1,40 +1,40 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { deleteItem, deletePlan} from '../actions/mealplanner';
+import { updateItem} from '../actions/mealplanner';
 
 
 
 class ShoppinglistCard extends React.Component {
   render(){
-    let ingredientsList;
-    let extrasList;
-
-    if(this.props.extra){
-      extrasList = 
-
-        <li className="shoppinglist-li">{this.props.extra}
-        <button className="save-button" onClick= {e=> this.props.dispatch(deleteItem(this.props.id))}>X</button>
-        </li>
+    let hideChecked;
+    const itemToUpdate = {checked:!this.props.checked, extra:this.props.extra};
+    if(this.props.checked === true  && this.props.showAll === false){
+    hideChecked= 
+    <div className="shoppinglist-li-hidden"> 
+    - {this.props.extra}
+    <button className="check-button" onClick= {e=> this.props.dispatch(updateItem(itemToUpdate,this.props.id))}><i className="far fa-check-square"></i></button>
+    </div>;
     }
-
-    if(this.props.ingredients){
-      ingredientsList= this.props.ingredients.map((item,i) =>
-        <li className="shoppinglist-li" key={i}>
-         {item}
-          <button className="save-button" >X</button>
-        </li>);
-    };
-
-
+    if(this.props.checked === false){
+      hideChecked= 
+      <div className="shoppinglist-li"> 
+      - {this.props.extra}
+      <button className="check-button" onClick= {e=> this.props.dispatch(updateItem(itemToUpdate,this.props.id))}><i className="far fa-square"></i></button>
+      </div>
+    }
     return(
-      <ul className="shoppinglist-ul">
-          {ingredientsList}
-          {extrasList}
-      </ul> 
+      <li className=""> 
+      {hideChecked}
+      </li>
     ) 
   }
 }
 
-export default (connect()(ShoppinglistCard));
+const mapStateToProps = state => {
+  return {
+      showAll: state.mealplanner.hideCheckedItems,
+  };
+};
 
-// onClick= {e=> this.props.dispatch(deletePlan(this.props.id))}
+export default (connect(mapStateToProps)(ShoppinglistCard));
+
