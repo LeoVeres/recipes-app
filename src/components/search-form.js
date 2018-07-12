@@ -4,9 +4,6 @@ import {connect} from 'react-redux';
 import Input from './input';
 import {searchRecipes} from '../actions/recipes';
 
-
-
-
 class SearchForm extends React.Component {
 
   onSubmit(values){
@@ -34,9 +31,6 @@ class SearchForm extends React.Component {
     }
 }
 
-
-
-
 SearchForm = reduxForm({
     form: 'search',
     onSubmitFail: (errors, dispatch) =>
@@ -45,5 +39,3 @@ SearchForm = reduxForm({
 
 
 export default (connect()(SearchForm));
-
-   // this.props.dispatch(searchRecipes(searchTerm));

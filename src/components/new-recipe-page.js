@@ -4,8 +4,6 @@ import requiresLogin from './require-login';
 import RecipeForm from './recipe-form';
 
 
-
-
 export class NewRecipe extends React.Component {
     componentDidMount() {
     }

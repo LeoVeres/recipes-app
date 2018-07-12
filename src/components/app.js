@@ -19,10 +19,8 @@ export class App extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
-        // When we are logged in, refresh the auth token periodically
         this.startPeriodicRefresh();
     } else if (prevProps.loggedIn && !this.props.loggedIn) {
-        // Stop refreshing when we log out
         this.stopPeriodicRefresh();
     }
 }
@@ -34,7 +32,7 @@ componentWillUnmount() {
 startPeriodicRefresh() {
     this.refreshInterval = setInterval(
         () => this.props.dispatch(refreshAuthToken()),
-        60 * 60 * 1000 // 1hour
+        60 * 60 * 1000 
     );
 }
 
@@ -44,8 +42,7 @@ stopPeriodicRefresh() {
     }
 
     clearInterval(this.refreshInterval);
-}
-// <Route exact path="/create" component={CreateRecipe}/>     
+}   
 
   render() {
     return (

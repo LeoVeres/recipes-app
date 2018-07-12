@@ -83,7 +83,6 @@ export const createPlan = plan => (dispatch, getState) => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
                 console.log('create recipe error')
-                // Convert ValidationErrors into SubmissionErrors for Redux Form
                 return Promise.reject(
                     new SubmissionError({
                         [location]: message
@@ -133,7 +132,6 @@ export const updatePlan = (recipe,id) => (dispatch, getState) => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
                 console.log('create recipe error')
-                // Convert ValidationErrors into SubmissionErrors for Redux Form
                 return Promise.reject(
                     new SubmissionError({
                         [location]: message
@@ -160,7 +158,6 @@ export const createItem = item => (dispatch, getState) => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
                 console.log('create recipe error')
-                // Convert ValidationErrors into SubmissionErrors for Redux Form
                 return Promise.reject(
                     new SubmissionError({
                         [location]: message
@@ -231,7 +228,6 @@ export const updateItem = (item,id) => (dispatch, getState) => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
                 console.log('create recipe error')
-                // Convert ValidationErrors into SubmissionErrors for Redux Form
                 return Promise.reject(
                     new SubmissionError({
                         [location]: message

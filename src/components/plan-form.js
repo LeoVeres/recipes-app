@@ -1,10 +1,7 @@
 import React from 'react';
-import {Field, reduxForm, reset} from 'redux-form';
+import {Field, reduxForm, reset, focus} from 'redux-form';
 import {fetchPlans, createPlan, createItem} from '../actions/mealplanner';
 import {required} from '../validators';
-
-
-
 
 
 export class PlanForm extends React.Component {
@@ -66,6 +63,6 @@ export class PlanForm extends React.Component {
 
 export default reduxForm({
     form: 'plan',
-    // onSubmitFail: (errors, dispatch) =>
-    //     dispatch(focus('edit', Object.keys(errors)[0]))
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('edit', Object.keys(errors)[0]))
 })(PlanForm);

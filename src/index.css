@@ -28,7 +28,7 @@ h2{
   text-decoration-style: dashed;
 
 }
-button{
+button, select, option{
   outline: none;
 }
 
@@ -46,7 +46,6 @@ button{
 }
 
 .table-button, .logout-button{
-  float: right;
   float: right;
 }
 
@@ -198,9 +197,7 @@ input, textarea, select{
   font-size:20px;
   margin-bottom: 5px
 }
-select{
-  margin:10px;
-}
+
 .save-button{
   display: block;
   border:2px grey solid;
@@ -227,6 +224,7 @@ select{
 }
 
 select{
+  margin:10px;;
   color:grey;
   background-color:white
 

@@ -36,14 +36,15 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
+
     return {
         recipes: state.recipes.all.filter(item=> 
             item.title.toLowerCase().includes(state.recipes.searchTerm.toLowerCase()) || 
-            item.ingredients.includes(state.recipes.searchTerm) ||
-            item.tags.includes(state.recipes.searchTerm))
+            item.ingredients.find(item=> item.toLowerCase().includes(state.recipes.searchTerm.toLowerCase())) ||
+            item.tags.find(item=>item.toLowerCase().includes(state.recipes.searchTerm.toLowerCase()))
+            )
     };
 };
 
-//export default connect(mapStateToProps)(Dashboard);
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));

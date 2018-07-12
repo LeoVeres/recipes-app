@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { updateItem} from '../actions/mealplanner';
 
-
-
 class ShoppinglistCard extends React.Component {
   render(){
     let hideChecked;
