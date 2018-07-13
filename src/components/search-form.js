@@ -18,6 +18,7 @@ class SearchForm extends React.Component {
     render() {
       return (
         <form 
+            role="search"
             className="search" 
             onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}>

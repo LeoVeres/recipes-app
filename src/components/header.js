@@ -19,11 +19,11 @@ export class HeaderBar extends React.Component {
             <div className="header-bar">
             <div className="navlinks">
                 <button className="logout-button"onClick={() => this.logOut()}><i className="fas fa-sign-out-alt"></i></button>
-                <NavLink  activeClassName= "activelink" className='link table-button'  to="/tableofcontents" ><i className="fas fa-question"></i></NavLink>
-                <NavLink  activeClassName= "activelink" className='link'  to="/dashboard" ><i className="fas fa-book"></i></NavLink>
-                <NavLink  activeClassName= "activelink"className="link"  to="/create"><i className="far fa-plus-square"></i></NavLink>
-                <NavLink  activeClassName= "activelink"className="link" to="/mealplanner"><i className="far fa-calendar-alt"></i></NavLink>
-                <NavLink  activeClassName= "activelink"className="link" to="/shoppinglist"><i className="fas fa-shopping-cart"></i></NavLink>
+                <NavLink  role="navigation" activeClassName= "activelink" className='link table-button'  to="/tableofcontents" ><i className="fas fa-question"></i></NavLink>
+                <NavLink  role="navigation" activeClassName= "activelink" className='link'  to="/dashboard" ><i className="fas fa-book"></i></NavLink>
+                <NavLink  role="navigation" activeClassName= "activelink"className="link"  to="/create"><i className="far fa-plus-square"></i></NavLink>
+                <NavLink  role="navigation" activeClassName= "activelink"className="link" to="/mealplanner"><i className="far fa-calendar-alt"></i></NavLink>
+                <NavLink  role="navigation" activeClassName= "activelink"className="link" to="/shoppinglist"><i className="fas fa-shopping-cart"></i></NavLink>
             </div>
             </div>
         }
