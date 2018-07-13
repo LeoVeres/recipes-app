@@ -22,7 +22,7 @@ Recipes
 <img width="1285" alt="screen shot recipes" src="">
 
 Create a Recipe
-<img width="1285" alt="screen shot create a recipe" src="">
+<img width="1285" alt="screen shot create a recipe" src="https://github.com/LeoVeres/recipes-app-client/blob/master/src/Images/Create%20a%20Recipe.PNG?raw=true">
 
 Meal Planner
 <img width="1285" alt="screen shot meal planner" src="">
