@@ -1,6 +1,6 @@
 # Recipe Book
 
-[Recipe Book](https://leo-recipe-app-client.herokuapp.com/) allows you to store your recipes, plan your meals, and manage your grocery list all in one place.  Whether you are in the eisles or in the kitchen everything you need to remember is a tap away.  
+[Recipe Book](https://leo-recipe-app-client.herokuapp.com/) allows you to store your recipes, plan your meals, and manage your grocery list all in one place.  Whether you are in the aisles or in the kitchen everything you need to remember is a tap away.  
 
 
 **Demo Account**<br />
